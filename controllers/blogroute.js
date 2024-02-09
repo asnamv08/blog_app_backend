@@ -2,7 +2,6 @@ const express=require("express")
 const signupmodel=require("../models/usermodel")
 const router=express.Router()
 const bcrypt=require("bcryptjs")
-const { log } = require("console")
 
 hashPasswordGenerator=async(pass)=>{
     const salt=await bcrypt.genSalt(10)
