@@ -2,7 +2,6 @@ const express=require("express")
 const signupmodel=require("../models/usermodel")
 const router=express.Router()
 const bcrypt=require("bcryptjs")
-const { log } = require("console")
 
 hashPasswordGenerator=async(pass)=>{
     const salt=await bcrypt.genSalt(10)
@@ -36,6 +35,10 @@ router.post("/add",async(req,res)=>{
     })
     
 
+})
+router.get("/view",async(req,res)=>{
+    let data=await signupmodel.find()
+    res.json(data)
 })
 router.post("/signin",async(req,res)=>{
     let input=req.body
