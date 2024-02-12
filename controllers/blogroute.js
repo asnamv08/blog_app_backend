@@ -36,6 +36,10 @@ router.post("/add",async(req,res)=>{
     
 
 })
+router.get("/view",async(req,res)=>{
+    let data=await signupmodel.find()
+    res.json(data)
+})
 router.post("/signin",async(req,res)=>{
     let input=req.body
     let email=req.body.email
